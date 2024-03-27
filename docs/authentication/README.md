@@ -1,7 +1,4 @@
-﻿# Link to SOP of the service
-<https://einstein.kcura.com/display/DV/SOP%3A+Undelete+Files+and+Directories+in+Unstructured+Storage>
-
-# <a name="_hlk162351708"></a>Azure Configuration:
+﻿# <a name="_hlk162351708"></a>Azure Configuration:
 In azure there are two app registrations and one enterprise application:
 
 1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false>

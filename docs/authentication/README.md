@@ -3,14 +3,14 @@ In azure there are two app registrations and one enterprise application:
 
 1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false>
 1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false>
-1. https://portal.azure.com/#view/Microsoft\_AAD\_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/
+1. <https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/>
 
 1 is backend for authentication, there are a couple of things configured:
 
 1) Token configuration – groups claim is added, because of this in bearer token we can see ID’s of groups that user is assigned to inside claims. While adding this optional claim an option “Groups assigned to the application (recommended for large enterprise companies to avoid exceeding the limit on the number of groups a token can emit)” was selected, otherwise we were getting too much groups and instead of ID’s we were getting an endpoint that we needed to call for informations.
 1) Expose an API – new scope was created that is used by our second app registration.
    Second app registration was added as authorized client application.
-1) ` `App roles – two roles were added, one for FAST members and one for outside users.
+1) App roles – two roles were added, one for FAST members and one for outside users.
 
 2 is for UI interactions with oauth2.
 
@@ -21,7 +21,7 @@ In azure there are two app registrations and one enterprise application:
 
 1) Users and groups – FAST group was added. This with combination with 1) step from 1<sup>st</sup> app registration allows us to get groups in claims.
 # oauth2 schema
-![](Aspose.Words.eacb9f46-5666-412c-84da-5887b3d671c1.001.png)
+![](oauth2_flow_schema.png)
 # Code description
 ## Appsettings.json
 "AzureAd": {
@@ -50,7 +50,7 @@ In azure there are two app registrations and one enterprise application:
 - "ClientId": The ID of Azure AD application. This is the application that users will be authenticating against.
 - "Scopes": The scopes that application requires. 
 - "CallbackPath": The path in application where users will be redirected after they authenticate with Azure AD
-- ` `"SignedOutCallBackPath": The path in application where users will be redirected after they sign out.
+- "SignedOutCallBackPath": The path in application where users will be redirected after they sign out.
 
 "SwaggerAzureAd": {
 

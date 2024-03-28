@@ -1,5 +1,5 @@
 ﻿# <a name="_hlk162351708"></a>Azure Configuration:
-In azure there are two app registrations and one enterprise application:
+**In azure there are two app registrations and one enterprise application:**
 
 1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false>
 1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false>

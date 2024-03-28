@@ -40,22 +40,14 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 # Code description
 ## Appsettings.json
 ```"AzureAd": {
-
-`        `"Instance": "https://login.microsoftonline.com/",
-
-`        `"Domain": "kcura.onmicrosoft.com",
-
-`        `"TenantId": "8afe73f9-0d93-4821-a898-c5c2dc320953",
-
-`        `"ClientId": "92b6eff0-dbed-43b7-8abd-2496511c6a00",
-
-`        `"Scopes": "AccessApi",
-
-`        `"CallbackPath": "/signin-oidc",
-
-`        `"SignedOutCallBackPath": "/signout-callback-oidc"
-
-`    `}
+      "Instance": "https://login.microsoftonline.com/",
+      "Domain": "kcura.onmicrosoft.com",
+      "TenantId": "8afe73f9-0d93-4821-a898-c5c2dc320953",
+      "ClientId": "92b6eff0-dbed-43b7-8abd-2496511c6a00",
+      "Scopes": "AccessApi",
+      "CallbackPath": "/signin-oidc",
+      "SignedOutCallBackPath": "/signout-callback-oidc"
+   }
 ```
 
 **AzureAd**: collection of information about [Azure AD](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/ProtectAnAPI/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)

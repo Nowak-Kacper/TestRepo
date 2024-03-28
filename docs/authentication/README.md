@@ -46,6 +46,8 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 
 # Code description
 ## Appsettings.json
+
+**AzureAd**: collection of information about [Azure AD](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)
 ```
 "AzureAd": {
 		"Instance": "https://login.microsoftonline.com/",
@@ -58,8 +60,6 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 	}
 ```
 
-**AzureAd**: collection of information about [Azure AD](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/ProtectAnAPI/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)
-
 - "Instance": The URL of the Azure AD instance. 
 - "Domain": The domain of Azure AD tenant.
 - "TenantId": The ID of Azure AD tenant.
@@ -67,6 +67,8 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 - "Scopes": The scopes that the application requires. 
 - "CallbackPath": The path in an application where users will be redirected after they authenticate with Azure AD
 - "SignedOutCallBackPath": The path in an application where users will be redirected after they sign out.
+
+**SwaggerAzureAd**: collection of information about [app registration responsible for UI’s OAuth2 integration](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false).
 
 ```
 "SwaggerAzureAd": {
@@ -76,8 +78,6 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 		"Scope": "api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi"
 	}
 ```
-
-**SwaggerAzureAd**: collection of information about [app registration responsible for UI’s OAuth2 integration](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false).
 
 - "ClientId": The ID of the Azure AD application. This is the application that Swagger UI will be authenticating against.
 - "Authorization": The URL of the Azure AD authorization endpoint. This is where Swagger UI will redirect users to authenticate. 

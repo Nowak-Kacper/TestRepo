@@ -118,7 +118,7 @@ setup.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
 		}
 	});
 ```
-This code is used in swagger to handle whole comunication process.
+This code is used in swagger to handle whole comunication process.  
 Values are passed from appsettings.json file
 
 # Maintenance:

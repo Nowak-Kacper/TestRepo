@@ -61,17 +61,14 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 - "CallbackPath": The path in application where users will be redirected after they authenticate with Azure AD
 - "SignedOutCallBackPath": The path in application where users will be redirected after they sign out.
 
+```
 "SwaggerAzureAd": {
-
-`        `"ClientId": "29cd79cb-1dd7-4ca0-814a-679912fa10d6",
-
-`        `"Authorization": "https://login.microsoftonline.com/8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/authorize",
-
-`        `"TokenUrl": "https://login.microsoftonline.com/8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/token",
-
-`        `"Scope": "api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi"
-
-`    `},
+      "ClientId": "29cd79cb-1dd7-4ca0-814a-679912fa10d6",
+      "Authorization": "https://login.microsoftonline.com/8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/authorize",
+      "TokenUrl": "https://login.microsoftonline.com/8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/token",
+      "Scope": "api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi"
+   }
+```
 
 **SwaggerAzureAd**: collection of information about [app registration responsible for UI’s OAuth2 integration](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false).
 

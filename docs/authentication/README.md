@@ -55,7 +55,8 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 
 `        `"SignedOutCallBackPath": "/signout-callback-oidc"
 
-`    `}```
+`    `}
+```
 
 **AzureAd**: collection of information about [Azure AD](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/ProtectAnAPI/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)
 

@@ -20,12 +20,15 @@
 ![](oauth2_flow_schema.png)
 
 **Template of call to Authorize Endpoint:**  
+```
 https://login.microsoftonline.com/8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/authorize?  
 client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00  
 &response_type=code&redirect_uri=&lt;taken from UI app registration&gt;  
 &scope=api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi  
+```
 
 **Template of call to Token Endpoint:**  
+```
 POST /8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/token HTTP/1.1  
 Host: login.microsoftonline.com  
 Content-Type: application/x-www-form-urlencoded  
@@ -36,6 +39,7 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 &redirect_uri=&lt;taken from UI app registration&gt;  
 &scope=api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi  
 &client_secret=<client_secret_for_confidential_clients>  
+```
 
 # Code description
 ## Appsettings.json

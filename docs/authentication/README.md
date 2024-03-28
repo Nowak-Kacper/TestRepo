@@ -1,19 +1,19 @@
 ﻿# <a name="_hlk162351708"></a>Azure Configuration:
-**In azure there are two app registrations and one enterprise application:**
+**List of app registrations and enterprise application with description of configuration process:**
 
-**[1 is backend for authentication, there are a couple of things configured:](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)**
+**[1 is backend for authentication:](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)**
 
 1) Token configuration – groups claim is added, because of this in bearer token we can see ID’s of groups that user is assigned to inside claims. While adding this optional claim an option “Groups assigned to the application (recommended for large enterprise companies to avoid exceeding the limit on the number of groups a token can emit)” was selected, otherwise we were getting too much groups and instead of ID’s we were getting an endpoint that we needed to call for informations.
 1) Expose an API – new scope was created that is used by our second app registration.
    Second app registration was added as authorized client application.
 1) App roles – two roles were added, one for FAST members and one for outside users.
 
-**[2 is for UI interactions with oauth2.](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)**
+**[2 is for UI interactions with oauth2:](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)**
 
 1) Authentication – for each web app/UI there is a need to add redirect URI, for example new redirect URI: <https://app-fasapi-eastus-reg.azurewebsites.net/oauth2-redirect.html> needs to be added for web app: [app-fasapi-eastus-reg.azurewebsites.net](https://app-fasapi-eastus-reg.azurewebsites.net/).
 1) Api permissions – new permission was added based on step 2) for 1<sup>st</sup> app registration
 
-**[3 is for specifying groups that should have access](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)** 
+**[3 is for specifying groups that should have access:](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)** 
 
 1) Users and groups – FAST group was added. Combining this and 1) step from 1<sup>st</sup> app registration allows us to get groups in claims.
 # oauth2 schema

@@ -85,7 +85,7 @@ go to app registration form AzureAd then go to Expose an Api and there are scope
 
 
 # Maintenance:
-In order to allow more groups to authenticate:
+**In order to allow more groups to authenticate:**
 
 1) Create new app role in [1<sup>st</sup> app registration](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)
 1) Add group to [enterprise application (3<sup>rd</sup> app)](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)
@@ -93,7 +93,7 @@ In order to allow more groups to authenticate:
 1) Add ID of this group to appsettings.json in AuthGroups section
 1) Add check for new group in IsAuthorizedByGroupMembershipFromToken method in AuthWithAzureGroup.cs
 
-In order to allow new web app to authenticate:
+**In order to allow new web app to authenticate:**
 
 1) for each web app/UI there is a need to add redirect URI.
 For example if we want to create new web app/UI named **test-web-app** we would need to [app registration responisble for UI](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)  

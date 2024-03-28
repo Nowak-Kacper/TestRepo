@@ -1,25 +1,21 @@
 ﻿# <a name="_hlk162351708"></a>Azure Configuration:
 **In azure there are two app registrations and one enterprise application:**
 
-1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false>
-1. <https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false>
-1. <https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/>
-
-**1 is backend for authentication, there are a couple of things configured:**
+**[1 is backend for authentication, there are a couple of things configured:](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)**
 
 1) Token configuration – groups claim is added, because of this in bearer token we can see ID’s of groups that user is assigned to inside claims. While adding this optional claim an option “Groups assigned to the application (recommended for large enterprise companies to avoid exceeding the limit on the number of groups a token can emit)” was selected, otherwise we were getting too much groups and instead of ID’s we were getting an endpoint that we needed to call for informations.
 1) Expose an API – new scope was created that is used by our second app registration.
    Second app registration was added as authorized client application.
 1) App roles – two roles were added, one for FAST members and one for outside users.
 
-**2 is for UI interactions with oauth2.**
+**[2 is for UI interactions with oauth2.](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)**
 
 1) Authentication – for each web app/UI there is a need to add redirect URI, for example new redirect URI: <https://app-fasapi-eastus-reg.azurewebsites.net/oauth2-redirect.html> needs to be added for web app: [app-fasapi-eastus-reg.azurewebsites.net](https://app-fasapi-eastus-reg.azurewebsites.net/).
 1) Api permissions – new permission was added based on step 2) for 1<sup>st</sup> app registration
 
-**3 is for specifying groups that should have access** 
+**[3 is for specifying groups that should have access](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)** 
 
-1) Users and groups – FAST group was added. This with combination with 1) step from 1<sup>st</sup> app registration allows us to get groups in claims.
+1) Users and groups – FAST group was added. Combining this and 1) step from 1<sup>st</sup> app registration allows us to get groups in claims.
 # oauth2 schema
 ![](oauth2_flow_schema.png)
 
@@ -61,7 +57,7 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 
 `    `}
 
-**AzureAd**: collection of information about Azure AD https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/ProtectAnAPI/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false
+**AzureAd**: collection of information about [Azure AD](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/ProtectAnAPI/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/isMSAApp~/false)
 
 - "Instance": The URL of the Azure AD instance. 
 - "Domain": The domain of Azure AD tenant.
@@ -83,8 +79,7 @@ client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00
 
 `    `},
 
-**SwaggerAzureAd**: collection of information about app registration responsible for UI’s OAuth2 integration.
-https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false
+**SwaggerAzureAd**: collection of information about [app registration responsible for UI’s OAuth2 integration](https://portal.azure.com/#view/Microsoft\_AAD\_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false).
 
 - "ClientId": The ID of Azure AD application. This is the application that Swagger UI will be authenticating against.
 - "Authorization": The URL of the Azure AD authorization endpoint. This is where Swagger UI will redirect users to authenticate. 
@@ -101,13 +96,15 @@ go to app registration form AzureAd then go to Expose an Api and there are scope
 # Maintenance:
 In order to allow more groups to authenticate:
 
-1) Create new app role in 1<sup>st</sup> app registration
-1) Add group to enterprise application (3<sup>rd</sup> app)
-1) Add ID of this group to appsettings.json in AuthGroups
+1) Create new app role in [1<sup>st</sup> app registration](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)
+1) Add group to [enterprise application (3<sup>rd</sup> app)](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)
+2) In Getting Started section there will be Assign users and groups or click Users and groups on the menu on left side
+1) Add ID of this group to appsettings.json in AuthGroups section
 1) Add check for new group in IsAuthorizedByGroupMembershipFromToken method in AuthWithAzureGroup.cs
 
 In order to allow new web app to authenticate:
 
 1) for each web app/UI there is a need to add redirect URI.
-   For example new redirect URI: <https://app-fasapi-eastus-reg.azurewebsites.net/oauth2-redirect.html> needs to be added for web app: [app-fasapi-eastus-reg.azurewebsites.net](https://app-fasapi-eastus-reg.azurewebsites.net/).
-
+For example if we want to create new web app/UI named **test-web-app** we would need to [app registration responisble for UI](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)  
+Follow this actions: Authentication -> "+ add a platform" -> Single-page-application  
+Enter Redirect-URI like: <https://test-web-app.azurewebsites.net/oauth2-redirect.html>

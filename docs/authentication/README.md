@@ -125,8 +125,8 @@ Values are passed from appsettings.json file
 **In order to allow more groups to authenticate:**
 
 1) Create new app role in [1<sup>st</sup> app registration](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)
-1) Add group to [enterprise application (3<sup>rd</sup> app)](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)
-   2) In Getting Started section there will be Assign users and groups or click Users and groups on the menu on left side
+1) Add group to [enterprise application (3<sup>rd</sup> app)](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)  
+In Getting Started section there will be Assign users and groups or click Users and groups on the menu on left side
 1) Add ID of this group to appsettings.json in AuthGroups section
 1) Add check for new group in IsAuthorizedByGroupMembershipFromToken method in AuthWithAzureGroup.cs
 

@@ -102,7 +102,7 @@ go to app registration form AzureAd then go to Expose an Api and there are scope
 In order to allow more groups to authenticate:
 
 1) Create new app role in 1<sup>st</sup> app registration
-1) Add group to enterprise application (3rd) app
+1) Add group to enterprise application (3<sup>rd</sup> app)
 1) Add ID of this group to appsettings.json in AuthGroups
 1) Add check for new group in IsAuthorizedByGroupMembershipFromToken method in AuthWithAzureGroup.cs
 

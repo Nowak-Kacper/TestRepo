@@ -87,6 +87,39 @@ Microsoft Entra ID -> app registrations -> Endpoint (menu on top of the web site
 To get Scope:
 go to app registration form AzureAd then go to Expose an Api and there are scopes with value you can copy
 
+## Program.cs
+```
+setup.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+	{
+		Description = "In order to authorize please select scope named \"Access API as a user\"",
+		Name = "oauth2.0",
+		Type = SecuritySchemeType.OAuth2,
+		Flows = new OpenApiOAuthFlows()
+		{
+			AuthorizationCode = new OpenApiOAuthFlow
+			{
+				AuthorizationUrl = new Uri(builder.Configuration["SwaggerAzureAd:Authorization"]),
+				TokenUrl = new Uri(builder.Configuration["SwaggerAzureAd:TokenUrl"]),
+				Scopes = new Dictionary<string, string>
+				{
+					{builder.Configuration["SwaggerAzureAd:Scope"], "Access API as a user"}
+				}
+			}
+		}
+	});
+	setup.AddSecurityRequirement(new OpenApiSecurityRequirement
+	{
+		{
+			new OpenApiSecurityScheme
+			{
+				Reference = new OpenApiReference{Type = ReferenceType.SecurityScheme, Id = "oauth2"}
+			},
+			new [] {builder.Configuration["SwaggerAzureAd:Scope"]}
+		}
+	});
+```
+This code is used in swagger to handle whole comunication process.
+Values are passed from appsettings.json file
 
 # Maintenance:
 **In order to allow more groups to authenticate:**

@@ -22,7 +22,7 @@
 **Template of call to Authorize Endpoint:**  
 https://login.microsoftonline.com/8afe73f9-0d93-4821-a898-c5c2dc320953/oauth2/v2.0/authorize?  
 client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00  
-&response_type=code&redirect_uri=&lttaken from UI app registration&gt  
+&response_type=code&redirect_uri=&lt;taken from UI app registration&gt;  
 &scope=api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi  
 
 **Template of call to Token Endpoint:**  
@@ -33,7 +33,7 @@ Content-Type: application/x-www-form-urlencoded
 client_id=92b6eff0-dbed-43b7-8abd-2496511c6a00  
 &grant_type=authorization_code  
 &code=<authorization_code_received_from_authorization_server>  
-&redirect_uri=&lttaken from UI app registration&gt  
+&redirect_uri=&lt;taken from UI app registration&gt;  
 &scope=api://92b6eff0-dbed-43b7-8abd-2496511c6a00/AccessApi  
 &client_secret=<client_secret_for_confidential_clients>  
 

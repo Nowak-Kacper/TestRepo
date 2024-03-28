@@ -16,6 +16,9 @@
 **[3 is for specifying groups that should have access:](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Overview/objectId/bcfa1930-dd87-4e9c-9c25-886888ad3636/appId/92b6eff0-dbed-43b7-8abd-2496511c6a00/preferredSingleSignOnMode~/null/servicePrincipalType/Application/fromNav/)** 
 
 1) Users and groups – FAST group was added. Combining this and 1) step from 1<sup>st</sup> app registration allows us to get groups in claims.
+
+**This is an example of configuration from our reggresion**  
+
 # oauth2 schema
 ![](oauth2_flow_schema.png)
 
@@ -132,7 +135,8 @@ In Getting Started section there will be Assign users and groups or click Users 
 
 **In order to allow new web app to authenticate:**
 
-1) for each web app/UI there is a need to add redirect URI.
-For example if we want to create new web app/UI named **test-web-app** we would need to [app registration responisble for UI](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)  
-Follow this actions: Authentication -> "+ add a platform" -> Single-page-application  
-Enter Redirect-URI like: <https://test-web-app.azurewebsites.net/oauth2-redirect.html>
+For each web app/UI there is a need to add redirect URI.  
+For example if new web app/UI named **test-web-app** was created:
+1) Go to [app registration responisble for UI](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/29cd79cb-1dd7-4ca0-814a-679912fa10d6/isMSAApp~/false)
+1) Follow this steps: Authentication -> "+ add a platform" -> Single-page-application  
+1) Enter Redirect-URI like: <https://test-web-app.azurewebsites.net/oauth2-redirect.html>
